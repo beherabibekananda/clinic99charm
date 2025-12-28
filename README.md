@@ -1,18 +1,12 @@
-# Welcome to your Lovable project
+# Tiny Triumph - Child Development Centre
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A trusted centre in Balasore dedicated to nurturing your child’s growth, development, and confidence.
 
-## How can I edit this code?
+## How to run locally
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+Follow these steps:
 
 **Use your preferred IDE**
 
