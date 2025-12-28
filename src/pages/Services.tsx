@@ -169,10 +169,10 @@ const Services = () => {
               variant="secondary"
               className="mt-8 rounded-full px-8 text-lg"
             >
-              <Link to="/booking">
+              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
                 Book an Appointment
                 <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

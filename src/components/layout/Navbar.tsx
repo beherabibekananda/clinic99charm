@@ -46,7 +46,7 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <Button asChild size="lg" className="rounded-full px-6">
-            <Link to="/booking">Book Appointment</Link>
+            <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">Book Appointment</a>
           </Button>
         </div>
 
@@ -82,9 +82,9 @@ const Navbar = () => {
               </Link>
             ))}
             <Button asChild className="mt-4 rounded-full">
-              <Link to="/booking" onClick={() => setIsOpen(false)}>
+              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                 Book Appointment
-              </Link>
+              </a>
             </Button>
           </nav>
         </div>
