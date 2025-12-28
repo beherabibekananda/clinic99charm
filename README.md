@@ -1,8 +1,8 @@
 # Tiny Triumph - Child Development Centre
 
-## Project Info
+A modern, responsive website for Tiny Triumph Child Development Centre built with React, TypeScript, and Tailwind CSS.
 
-A trusted centre in Balasore dedicated to nurturing your child’s growth, development, and confidence.
+**Last Deployment:** 2025-12-28 22:03 IST
 
 ## How to run locally
 
