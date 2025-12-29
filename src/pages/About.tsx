@@ -241,8 +241,8 @@ const About = () => {
             <p className="mt-4 text-lg text-muted-foreground">
               Schedule your first appointment and see why our patients trust us with their care.
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-full px-8 text-lg">
-              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
+            <Button asChild size="lg" className="mt-8 rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
                 Book an Appointment
                 <ChevronRight className="ml-2 h-5 w-5" />
               </a>

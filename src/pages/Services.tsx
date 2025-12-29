@@ -143,7 +143,7 @@ const Services = () => {
               We accept most major insurance plans and offer flexible payment options.
               Contact our office to verify your coverage or discuss payment plans.
             </p>
-            <Button asChild variant="outline" className="mt-8 rounded-full">
+            <Button asChild variant="outline" className="mt-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <Link to="/contact">
                 Contact Us About Insurance
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -167,9 +167,9 @@ const Services = () => {
               asChild
               size="lg"
               variant="secondary"
-              className="mt-8 rounded-full px-8 text-lg"
+              className="mt-8 rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
                 Book an Appointment
                 <ChevronRight className="ml-2 h-5 w-5" />
               </a>

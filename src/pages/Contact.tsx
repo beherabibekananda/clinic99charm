@@ -55,13 +55,28 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Contact form submitted:", data);
+
+    // Construct WhatsApp message
+    const message = `*New Inquiry from Website*
+*Name:* ${data.name}
+*Email:* ${data.email}
+*Phone:* ${data.phone}
+*Subject:* ${data.subject}
+*Message:* ${data.message}`;
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=919114222044&text=${encodeURIComponent(message)}`;
+
+    // Simulate a brief delay for UX
+    await new Promise((resolve) => setTimeout(resolve, 800));
+
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, "_blank");
+
+    console.log("Contact form redirected to WhatsApp:", data);
     setIsSuccess(true);
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Opening WhatsApp...",
+      description: "Send the pre-filled message to contact us directly.",
     });
     setIsSubmitting(false);
   };
@@ -82,8 +97,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@tinytriumph.com",
-      link: "mailto:contact@tinytriumph.com",
+      content: "support@tinytriumph.in\nadmin@tinytriumph.in",
+      link: "mailto:support@tinytriumph.in",
     },
     {
       icon: Clock,
@@ -185,7 +200,7 @@ const Contact = () => {
                           setIsSuccess(false);
                           form.reset();
                         }}
-                        className="mt-6 rounded-full"
+                        className="mt-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
                         Send Another Message
                       </Button>
@@ -280,7 +295,7 @@ const Contact = () => {
                           <Button
                             type="submit"
                             size="lg"
-                            className="w-full rounded-full"
+                            className="w-full rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
                             disabled={isSubmitting}
                           >
                             {isSubmitting ? (
@@ -313,7 +328,7 @@ const Contact = () => {
             <p className="mt-4 text-lg text-muted-foreground">
               Skip the wait - book your appointment online now.
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-full px-8 text-lg">
+            <Button asChild size="lg" className="mt-8 rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
                 Book an Appointment
                 <ChevronRight className="ml-2 h-5 w-5" />

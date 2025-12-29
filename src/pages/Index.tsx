@@ -96,13 +96,13 @@ const Index = () => {
               Through tailored programs and expert therapies, we help children thrive at every stage.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "0.2s" }}>
-              <Button asChild size="lg" className="animate-fade-up rounded-full px-8 text-lg">
-                <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
+              <Button asChild size="lg" className="animate-fade-up rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
                   Book an Appointment
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="animate-fade-up rounded-full px-8 text-lg" style={{ animationDelay: "0.3s" }}>
+              <Button asChild variant="outline" size="lg" className="animate-fade-up rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg" style={{ animationDelay: "0.3s" }}>
                 <Link to="/services">View Our Services</Link>
               </Button>
             </div>
@@ -149,7 +149,7 @@ const Index = () => {
           </div>
 
           <div className="mt-10 text-center">
-            <Button asChild variant="outline" className="rounded-full">
+            <Button asChild variant="outline" className="rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
               <Link to="/services">
                 View All Services
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -158,6 +158,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
       {/* Why Choose Us Section */}
       <section className="bg-secondary/30 py-20 md:py-28">
@@ -374,7 +375,7 @@ const Index = () => {
               </a>
             </Button>
             <Button asChild variant="outline" className="rounded-full">
-              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
                 <Smartphone className="mr-2 h-4 w-4" />
                 Connect on WhatsApp
               </a>
@@ -397,9 +398,9 @@ const Index = () => {
               asChild
               size="lg"
               variant="secondary"
-              className="mt-8 rounded-full px-8 text-lg"
+              className="mt-8 rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
                 Book Your Appointment
                 <ChevronRight className="ml-2 h-5 w-5" />
               </a>

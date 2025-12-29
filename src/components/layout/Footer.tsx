@@ -40,7 +40,7 @@ const Footer = () => {
                 { name: "Home", path: "/" },
                 { name: "About Us", path: "/about" },
                 { name: "Services", path: "/services" },
-                { name: "Book Appointment", path: "https://wa.me/919114222044", isExternal: true },
+                { name: "Book Appointment", path: "https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC.", isExternal: true },
                 { name: "Contact", path: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
@@ -109,8 +109,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <a href="mailto:contact@tinytriumph.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  contact@tinytriumph.com
+                <a href="mailto:support@tinytriumph.in" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  support@tinytriumph.in
                 </a>
               </li>
               <li className="flex items-start gap-3">

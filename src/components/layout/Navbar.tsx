@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -35,7 +36,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-primary ${isActive(link.path) ? "text-primary" : "text-muted-foreground"
+              className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-110 ${isActive(link.path) ? "text-primary" : "text-muted-foreground"
                 }`}
             >
               {link.name}
@@ -43,10 +44,9 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button asChild size="lg" className="rounded-full px-6">
-            <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer">Book Appointment</a>
+          <Button asChild size="lg" className="rounded-full px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">Book Appointment</a>
           </Button>
         </div>
 
@@ -73,7 +73,7 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-medium transition-colors hover:text-primary ${isActive(link.path)
+                className={`text-lg font-medium transition-all duration-300 hover:text-primary hover:translate-x-2 ${isActive(link.path)
                   ? "text-primary"
                   : "text-muted-foreground"
                   }`}
@@ -81,8 +81,8 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild className="mt-4 rounded-full">
-              <a href="https://wa.me/919114222044" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+            <Button asChild className="mt-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                 Book Appointment
               </a>
             </Button>

@@ -6,7 +6,7 @@ export const WhatsAppButton = () => {
 
   return (
     <a
-      href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`}
+      href={`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`}
       target="_blank"
       rel="noopener noreferrer"
       className="flex h-16 w-16 items-center justify-center transition-transform hover:scale-110 focus:outline-none"
