@@ -30,40 +30,40 @@ const About = () => {
 
   const team = [
     {
-      name: "Dr. Sarah Johnson",
-      role: "Medical Director & Family Physician",
+      name: "Dr. Anjali Sharma",
+      role: "Lead Pediatric Consultant",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
-      bio: "With over 20 years of experience, Dr. Johnson leads our team with dedication to patient-centered care.",
+      bio: "With extensive experience in child development, Dr. Sharma guides our clinical approach with compassion.",
     },
     {
-      name: "Dr. Michael Chen",
-      role: "Internal Medicine Specialist",
+      name: "Rajesh Kumar",
+      role: "Senior Occupational Therapist",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop",
-      bio: "Dr. Chen specializes in preventive medicine and chronic disease management with a holistic approach.",
+      bio: "Rajesh specializes in sensory integration and helping children develop crucial daily living skills.",
     },
     {
-      name: "Dr. Emily Rodriguez",
-      role: "Pediatrician",
+      name: "Priya Das",
+      role: "Speech Language Pathologist",
       image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
-      bio: "Dr. Rodriguez brings warmth and expertise to pediatric care, making children feel comfortable.",
+      bio: "Priya is passionate about helping children find their voice and improve their communication abilities.",
     },
     {
-      name: "Dr. James Wilson",
-      role: "General Practitioner",
+      name: "Amit Patel",
+      role: "Special Educator",
       image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop",
-      bio: "Dr. Wilson is passionate about building lasting relationships with patients and their families.",
+      bio: "Amit designs tailored educational programs that cater to the unique learning styles of every child.",
     },
     {
-      name: "Lisa Thompson",
-      role: "Nurse Practitioner",
+      name: "Sunita Mohanty",
+      role: "Physiotherapist",
       image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=400&fit=crop",
-      bio: "Lisa provides comprehensive care with a focus on patient education and wellness.",
+      bio: "Sunita focuses on improving mobility, posture, and strength through engaging physical exercises.",
     },
     {
-      name: "David Park",
-      role: "Physician Assistant",
+      name: "Vikram Singh",
+      role: "Behavior Therapy Specialist",
       image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop",
-      bio: "David excels in acute care and works closely with our physicians to ensure quality treatment.",
+      bio: "Vikram works closely with families to implement effective behavior intervention strategies.",
     },
   ];
 
@@ -92,7 +92,7 @@ const About = () => {
               <div className="aspect-[4/3] overflow-hidden rounded-3xl">
                 <img
                   src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop"
-                  alt="CareWell Clinic building"
+                  alt="Tiny Triumph Centre"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -132,9 +132,9 @@ const About = () => {
                 </div>
                 <h3 className="font-display text-2xl font-bold text-foreground">Our Mission</h3>
                 <p className="mt-4 text-muted-foreground">
-                  To provide accessible, high-quality healthcare that addresses the physical,
-                  emotional, and social needs of our patients. We are committed to building
-                  lasting relationships based on trust, respect, and excellent medical care.
+                  To provide accessible, high-quality developmental support that addresses the physical,
+                  emotional, and social needs of children. We are committed to building
+                  lasting relationships based on trust, respect, and excellent therapeutic care.
                 </p>
               </CardContent>
             </Card>
@@ -146,9 +146,9 @@ const About = () => {
                 </div>
                 <h3 className="font-display text-2xl font-bold text-foreground">Our Vision</h3>
                 <p className="mt-4 text-muted-foreground">
-                  To be the healthcare provider of choice in our community, recognized for
-                  our clinical excellence, compassionate care, and commitment to improving
-                  the health and well-being of every patient we serve.
+                  To be the child development centre of choice in our community, recognized for
+                  our clinical excellence, compassionate care, and commitment to nurturing
+                  the potential of every child we serve.
                 </p>
               </CardContent>
             </Card>

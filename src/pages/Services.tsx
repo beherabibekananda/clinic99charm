@@ -1,184 +1,211 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
 import {
-  Stethoscope,
-  Heart,
-  Shield,
-  Users,
-  Baby,
-  Activity,
-  Brain,
-  Pill,
-  Syringe,
-  Microscope,
-  Thermometer,
-  Clipboard,
   ChevronRight,
+  MessageCircle,
+  Sparkles,
+  ShieldCheck,
+  Star,
+  Quote,
+  ArrowRight
 } from "lucide-react";
+import { motion } from "framer-motion";
+import { services } from "@/data/services";
 
 const Services = () => {
-  const services = [
-    {
-      icon: Users,
-      title: "Occupational Therapy",
-      description: "Helping children achieve independence in their daily lives through improved motor skills, sensory processing, and coordination.",
-      features: ["Fine motor skills", "Sensory integration", "Daily living skills", "Hand-eye coordination"],
-    },
-    {
-      icon: Activity,
-      title: "Speech Therapy",
-      description: "Focused on improving communication skills, including articulation, language development, and social communication.",
-      features: ["Articulation correction", "Language development", "Social skills", "Fluency & voice"],
-    },
-    {
-      icon: Brain,
-      title: "ABA Therapy",
-      description: "Applied Behavior Analysis therapy to encourage positive behaviors and improve social, communication, and learning skills.",
-      features: ["Behavior modification", "Social skills training", "Skill acquisition", "Parent training"],
-    },
-    {
-      icon: Activity,
-      title: "Physical Therapy",
-      description: "Enhancing physical abilities including strength, balance, coordination, and mobility for better functional independence.",
-      features: ["Strength building", "Balance & coordination", "Gait training", "Motor planning"],
-    },
-    {
-      icon: Clipboard,
-      title: "Special Education",
-      description: "Tailored educational support to help children with learning differences achieve their academic potential.",
-      features: ["Individualized learning", "Academic support", "Cognitive skills", "Learning strategies"],
-    },
-    {
-      icon: Stethoscope,
-      title: "Early Intervention",
-      description: "Support for infants and toddlers with developmental delays to help them reach critical milestones.",
-      features: ["Developmental support", "Milestone tracking", "Family guidance", "Play-based therapy"],
-    },
-  ];
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-teal-light/30 to-background py-20 md:py-28">
+      {/* 1. Theatrical Hero Section */}
+      <section className="relative min-h-[75vh] flex items-center overflow-hidden py-24 md:py-32">
+        {/* Background Image with Overlay */}
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600&h=900&fit=crop')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-background" />
+        </motion.div>
+
         <div className="container relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="animate-fade-up font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-              Our Services
-            </h1>
-            <p className="mt-6 animate-fade-up text-lg text-muted-foreground md:text-xl" style={{ animationDelay: "0.1s" }}>
-              Comprehensive development services designed to help your child grow and thrive.
-            </p>
+          <div className="mx-auto max-w-5xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="font-display text-xl font-bold tracking-[0.4em] text-white/90 uppercase mb-8">
+                Clinical Excellence
+              </h2>
+              <h1 className="font-display text-6xl md:text-9xl font-bold tracking-tight text-white leading-[1] mb-10">
+                Crafting <span className="italic text-primary-foreground">Brighter</span> Futures.
+              </h1>
+              <p className="mx-auto max-w-3xl text-2xl text-white/90 leading-relaxed font-light">
+                Tailored therapy programs designed to unlock the unique potential within every child. Experience world-class care in a boutique clinical setting.
+              </p>
+            </motion.div>
           </div>
         </div>
-        <div className="absolute -top-24 right-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+
+        {/* Abstract Background Decoration */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }} />
+        </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 md:py-28">
+      {/* 2. Boutique Services Showcase */}
+      <section className="py-24 md:py-32 bg-white">
         <div className="container">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={service.title}
-                className="group relative h-full overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm transition-all duration-500 hover:shadow-lg"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                {/* Default State */}
-                <div className="relative z-10 flex h-full flex-col p-6 transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-0">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <service.icon className="h-7 w-7" />
-                  </div>
-                  <h3 className="font-display text-xl font-semibold text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-muted-foreground">
-                    {service.description}
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="group relative block h-[520px] overflow-hidden rounded-[3.5rem] bg-card border border-border/40 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] hover:-translate-y-2"
+                >
+                  {/* Black Shade Sweep Effect */}
+                  <motion.div
+                    className="absolute inset-0 z-0 pointer-events-none bg-[#1d2f38]/5"
+                    initial={{ y: "-210%", rotate: 90, scaleX: 0.5, scaleY: 1.5 }}
+                    whileHover={{ y: "210%" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
 
-                {/* Hover Reveal State */}
-                <div className="absolute inset-0 z-20 flex flex-col justify-center bg-primary p-6 text-primary-foreground opacity-0 transition-all duration-500 translate-y-full group-hover:translate-y-0 group-hover:opacity-100">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 text-white">
-                    <service.icon className="h-7 w-7" />
+                  {/* Light Sweep Effect */}
+                  <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+                    <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 group-hover:translate-x-[300%]" />
                   </div>
-                  <h3 className="font-display text-xl font-semibold">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-primary-foreground/90">
-                    {service.description}
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-primary-foreground/80">
-                        <div className="h-1.5 w-1.5 rounded-full bg-white" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+
+                  <div className="h-48 w-full overflow-hidden relative z-20">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                  </div>
+
+                  <div className="relative z-30 flex h-full flex-col p-10 transition-all duration-300">
+                    <div className="mb-6 relative">
+                      {/* Icon Backwash Effect */}
+                      <div className={`flex h-20 w-20 items-center justify-center rounded-[1.5rem] bg-background/80 backdrop-blur-sm shadow-xl transition-all duration-500 cubic-bezier(0.62, 0.21, 0.45, 1.52) group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/30 -mt-20 relative z-40 ${service.iconColor}`}>
+                        <motion.div
+                          whileHover={{ scale: 1.2, rotate: [0, -10, 10, -10, 0] }}
+                          transition={{ duration: 0.5 }}
+                          className="transition-colors duration-300 delay-75 group-hover:text-white"
+                        >
+                          <service.icon className="h-10 w-10" />
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    <h3 className="font-display text-2xl font-bold tracking-tight mb-4 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-light line-clamp-2">
+                      {service.headline}
+                    </p>
+
+                    <div className="mt-auto flex items-center gap-3 text-primary font-bold group-hover:translate-x-2 transition-transform duration-300">
+                      <span className="text-xs uppercase tracking-[0.2em]">Explore Program</span>
+                      <ArrowRight className="h-5 w-5" />
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Insurance Section */}
-      <section className="bg-secondary/30 py-16 md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Insurance & Payment
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              We accept most major insurance plans and offer flexible payment options.
-              Contact our office to verify your coverage or discuss payment plans.
-            </p>
-            <Button asChild variant="outline" className="mt-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              <Link to="/contact">
-                Contact Us About Insurance
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+      {/* 3. Narrative "Our Philosophy" Section */}
+      <section className="py-24 md:py-40 bg-secondary/5 relative overflow-hidden">
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-display text-5xl md:text-7xl font-bold text-foreground leading-tight mb-10">
+                Clinical Mastery. <br />
+                <span className="text-primary italic">Compassionate</span> Results.
+              </h2>
+              <div className="space-y-8 text-2xl text-muted-foreground leading-relaxed font-light">
+                <p>
+                  At Tiny Triumph, we don't believe in one-size-fits-all. Every child's developmental path is a unique tapestry of strengths and opportunities.
+                </p>
+                <p>
+                  Our boutique approach ensures that your child is seen, heard, and deeply supported by a multi-disciplinary team of clinical experts who are as invested in their success as you are.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-square rounded-[4rem] bg-white shadow-2xl p-12 flex flex-col justify-center text-center">
+                <Quote className="h-20 w-20 text-primary/20 mx-auto mb-10" />
+                <h3 className="font-display text-4xl italic font-medium text-foreground mb-10">
+                  "Our mission is to bridge the gap between clinical excellence and the joyful play of childhood."
+                </h3>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="h-px w-12 bg-primary/30" />
+                  <span className="text-xl font-bold tracking-widest uppercase text-primary">Tiny Triumph Team</span>
+                  <div className="h-px w-12 bg-primary/30" />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-primary py-16 md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-4xl">
-              Ready to Get Started?
+      {/* 4. Contact/CTA Section */}
+      <section className="bg-primary py-24 md:py-32 relative overflow-hidden group">
+        <div className="container relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-8">
+              Ready to Experience the Difference?
             </h2>
-            <p className="mt-4 text-lg text-primary-foreground/80">
-              Book your appointment today and take the first step toward better health.
+            <p className="mx-auto max-w-2xl text-2xl text-primary-foreground/80 mb-12 font-light">
+              Book a premium assessment today and start your child's journey toward clinical success.
             </p>
             <Button
               asChild
               size="lg"
               variant="secondary"
-              className="mt-8 rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="rounded-full px-16 py-10 text-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:scale-105 transition-all bg-white text-primary hover:bg-white/90"
             >
-              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
-                Book an Appointment
-                <ChevronRight className="ml-2 h-5 w-5" />
+              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20a%20clinical%20assessment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
+                Begin Consultation
+                <ChevronRight className="ml-3 h-8 w-8" />
               </a>
             </Button>
-          </div>
+          </motion.div>
         </div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-1000" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-1000" />
       </section>
     </Layout>
   );
 };
 
 export default Services;
+

@@ -15,32 +15,14 @@ import {
   Activity,
   Facebook,
   Smartphone,
-  MessageCircle
+  MessageCircle,
+  ClipboardList,
+  Sparkles
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { services } from "@/data/services";
 
 const Index = () => {
-  const services = [
-    {
-      icon: Users,
-      title: "Occupational Therapy",
-      description: "Helps children build daily living and motor skills for independence.",
-    },
-    {
-      icon: MessageCircle,
-      title: "Speech Therapy",
-      description: "Improves communication and speech abilities for better expression.",
-    },
-    {
-      icon: Brain,
-      title: "ABA Therapy",
-      description: "Structured skill learning for behavioral development.",
-    },
-    {
-      icon: Activity,
-      title: "Physical Therapy",
-      description: "Support for movement, posture, strength, and coordination.",
-    },
-  ];
 
   const features = [
     {
@@ -51,7 +33,7 @@ const Index = () => {
     {
       icon: Award,
       title: "Experienced Team",
-      description: "Board-certified physicians with decades of experience.",
+      description: "Specialized pediatric therapists with years of clinical expertise.",
     },
     {
       icon: Heart,
@@ -62,21 +44,21 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: "Sarah Mitchell",
-      role: "Patient since 2018",
-      content: "The care I receive at CareWell is exceptional. Dr. Johnson always takes the time to listen and explain everything thoroughly.",
+      name: "Sandeep Rao",
+      role: "Parent",
+      content: "The care our son receives at Tiny Triumph is exceptional. The therapists always take the time to listen and explain the progress thoroughly.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
-      role: "Patient since 2020",
-      content: "I was nervous about finding a new doctor, but the staff here made me feel welcome from day one. Highly recommend!",
+      name: "Meera Nair",
+      role: "Parent",
+      content: "I was worried about finding the right support for my daughter, but the team here made us feel welcome and hopeful from day one.",
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
-      role: "Patient since 2019",
-      content: "As a mom of three, I appreciate how wonderful they are with my kids. The pediatric team is amazing.",
+      name: "Prakash Mohanty",
+      role: "Parent",
+      content: "As parents, we appreciate how wonderful they are with children. The therapeutic team at Tiny Triumph is truly amazing.",
       rating: 5,
     },
   ];
@@ -84,34 +66,62 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-teal-light/30 to-background py-20 md:py-32">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden py-24 md:py-32">
+        {/* Background Image with Overlay */}
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/hero-clinic.png')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
+        </motion.div>
+
         <div className="container relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="animate-fade-up font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-              Welcome to
-              <span className="text-primary"> Tiny Triumph</span>
-            </h1>
-            <p className="mt-6 animate-fade-up text-lg text-muted-foreground md:text-xl" style={{ animationDelay: "0.1s" }}>
-              A trusted centre in Balasore dedicated to nurturing your child’s growth, development, and confidence.
-              Through tailored programs and expert therapies, we help children thrive at every stage.
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "0.2s" }}>
-              <Button asChild size="lg" className="animate-fade-up rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="font-display text-5xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl">
+                Nurturing
+                <span className="text-primary block sm:inline"> Little Triumphs</span>
+              </h1>
+              <p className="mt-8 text-xl text-gray-200/90 md:text-2xl leading-relaxed max-w-3xl mx-auto font-light">
+                A premier child development centre in Balasore dedicated to unlocking your child's full potential through
+                <span className="text-white font-medium"> compassionate care</span> and <span className="text-white font-medium">expert therapy</span>.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row"
+            >
+              <Button asChild size="lg" className="rounded-full px-10 py-7 text-xl shadow-2xl hover-lift bg-primary hover:bg-primary/90">
                 <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
-                  Book an Appointment
-                  <ChevronRight className="ml-2 h-5 w-5" />
+                  Book Appointment
+                  <ChevronRight className="ml-2 h-6 w-6" />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="animate-fade-up rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg" style={{ animationDelay: "0.3s" }}>
-                <Link to="/services">View Our Services</Link>
+              <Button asChild variant="outline" size="lg" className="rounded-full px-10 py-7 text-xl border-white/30 text-white glass hover:bg-white/20 transition-all duration-300">
+                <Link to="/services">Our Specialities</Link>
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute -top-24 right-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
+        {/* Floating elements for visual interest */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-12 rounded-full bg-gradient-to-b from-white/20 to-transparent"
+          />
+        </div>
       </section>
 
       {/* Services Section */}
@@ -126,25 +136,59 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <Card
+              <motion.div
                 key={service.title}
-                className="group border-border/50 bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
-                style={{ animationDelay: `${index * 0.1} s` }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                <CardContent className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <service.icon className="h-6 w-6" />
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="group relative block h-80 overflow-hidden rounded-[2.5rem] border border-border/50 bg-card shadow-lg transition-all duration-300 hover:shadow-2xl"
+                >
+                  {/* Black Shade Sweep Effect */}
+                  <motion.div
+                    className="absolute inset-0 z-0 pointer-events-none bg-[#1d2f38]/10"
+                    initial={{ y: "-210%", rotate: 90, scaleX: 0.5, scaleY: 1.5 }}
+                    whileHover={{ y: "210%" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
+
+                  {/* Light Sweep (Shine) Effect */}
+                  <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+                    <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-1000 group-hover:translate-x-[300%]" />
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
+
+                  <div className="relative z-20 flex h-full flex-col items-center justify-center p-8 text-center">
+                    {/* Icon Container with Backwash */}
+                    <div className="relative mb-6">
+                      <div className={`flex h-24 w-24 items-center justify-center rounded-[1.5rem] bg-primary/10 transition-all duration-500 cubic-bezier(0.62, 0.21, 0.45, 1.52) group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/30`}>
+                        <motion.div
+                          whileHover={{ scale: 1.2, rotate: [0, -10, 10, -10, 0] }}
+                          transition={{ duration: 0.5 }}
+                          className={`transition-colors duration-300 delay-75 group-hover:text-white ${service.textColor}`}
+                        >
+                          <service.icon className="h-12 w-12" />
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    <h3 className="font-display text-2xl font-bold transition-colors duration-300 group-hover:text-primary mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <div className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                      View Details <ChevronRight className="h-4 w-4" />
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -161,222 +205,273 @@ const Index = () => {
 
 
       {/* Why Choose Us Section */}
-      <section className="bg-secondary/30 py-20 md:py-28">
-        <div className="container">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-                Why Choose Tiny Triumph?
+      <section className="bg-secondary/20 py-24 md:py-32 relative overflow-hidden">
+        <div className="container relative z-10">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="font-display text-4xl font-bold text-foreground md:text-5xl leading-tight">
+                Why Parents Trust <br />
+                <span className="text-primary">Tiny Triumph</span>
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                We provide a personalized approach for every child with a professional and caring therapy team.
+              <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
+                We provide a personalized sanctuary for development, combining clinical excellence with a nurturing heart.
               </p>
 
-              <div className="mt-10 space-y-6">
-                {features.map((feature) => (
-                  <div key={feature.title} className="flex gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <feature.icon className="h-6 w-6" />
+              <div className="mt-12 space-y-8">
+                {features.map((feature, idx) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex gap-6 group"
+                  >
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                      <feature.icon className="h-7 w-7" />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">
+                      <h3 className="font-display text-xl font-bold text-foreground">
                         {feature.title}
                       </h3>
-                      <p className="mt-1 text-muted-foreground">
+                      <p className="mt-2 text-muted-foreground text-lg leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative">
-              <div className="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="aspect-[4/5] overflow-hidden rounded-[3rem] shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=600&fit=crop"
-                  alt="Caring doctor with patient"
+                  src="/images/therapy-session.png"
+                  alt="Therapy session at Tiny Triumph"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 rounded-2xl bg-card p-6 shadow-xl">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <Award className="h-7 w-7" />
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="absolute -bottom-8 -right-8 rounded-3xl glass p-8 shadow-2xl max-w-[240px]"
+              >
+                <div className="flex items-center gap-5">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg">
+                    <Award className="h-8 w-8" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground">4.9 ★</p>
-                    <p className="text-sm text-muted-foreground">Top Rated</p>
+                    <p className="text-3xl font-bold text-foreground">4.9 ★</p>
+                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Top Rated</p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-10 -left-10 h-40 w-40 bg-accent/10 rounded-full blur-3xl" />
+              <div className="absolute -bottom-10 -right-10 h-60 w-60 bg-primary/10 rounded-full blur-3xl" />
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32 bg-white relative">
         <div className="container">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              What Our Patients Say
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Hear from the families who trust us with their healthcare needs.
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-display text-4xl font-bold text-foreground md:text-5xl"
+            >
+              Voices of Trust
+            </motion.h2>
+            <p className="mt-6 text-xl text-muted-foreground">
+              Real stories from families who have experienced the magic of Tiny Triumph.
             </p>
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <Card
+              <motion.div
                 key={testimonial.name}
-                className="border-border/50 bg-card"
-                style={{ animationDelay: `${index * 0.1} s` }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
               >
-                <CardContent className="p-6">
-                  <div className="mb-4 flex gap-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground italic">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold">
-                      {testimonial.name.charAt(0)}
+                <Card className="h-full border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] overflow-hidden bg-secondary/10 group">
+                  <CardContent className="p-10 flex flex-col h-full">
+                    <div className="mb-6 flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                      ))}
                     </div>
-                    <div>
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-foreground/80 italic text-lg leading-relaxed mb-10 flex-grow">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="mt-auto flex items-center gap-4">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white font-bold text-xl shadow-lg">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="font-bold text-foreground text-lg">{testimonial.name}</p>
+                        <p className="text-sm font-medium text-primary uppercase tracking-widest">{testimonial.role}</p>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Social Footprints Section */}
-      <section className="bg-secondary/30 py-16 md:py-24 overflow-hidden">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+      <section className="bg-secondary/20 py-24 md:py-32 overflow-hidden relative">
+        <div className="container relative z-10">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-display text-4xl font-bold text-foreground md:text-5xl"
+            >
               Our Social Footprints
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Join our growing community and stay updated with our latest activities and success stories.
+            </motion.h2>
+            <p className="mt-6 text-xl text-muted-foreground">
+              Join our vibrant community and witness the daily triumphs of our little champions.
             </p>
           </div>
         </div>
 
-        <div className="relative group">
-          <div className="flex animate-marquee whitespace-nowrap py-12 group-hover:[animation-play-state:paused]">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex gap-8 px-4">
-                {[
-                  {
-                    id: 1,
-                    content: "Our young champion making great progress in physical therapy today! Every step counts.",
-                    type: "Achievement",
-                    date: "2 days ago",
-                    image: "https://images.unsplash.com/photo-1576091160550-217359f4ecf8?w=400&h=300&fit=crop"
-                  },
-                  {
-                    id: 2,
-                    content: "New sensory play tools have arrived! Helping children explore and learn through touch and feel.",
-                    type: "Update",
-                    date: "1 week ago",
-                    image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop"
-                  },
-                  {
-                    id: 3,
-                    content: "Speech therapy success stories! We're celebrating our little hero's first words this month.",
-                    type: "Success Story",
-                    date: "3 days ago",
-                    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop"
-                  },
-                  {
-                    id: 4,
-                    content: "Join us for our next parent-teacher workshop on understanding child behavioral patterns.",
-                    type: "Event",
-                    date: "Today",
-                    image: "https://images.unsplash.com/photo-1573497620053-ea5310f94a17?w=400&h=300&fit=crop"
-                  },
-                  {
-                    id: 5,
-                    content: "A beautiful morning at Tiny Triumph! Creating a nurturing environment for every child.",
-                    type: "Clinic Life",
-                    date: "4 days ago",
-                    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=300&fit=crop"
-                  }
-                ].map((post) => (
-                  <div
-                    key={post.id}
-                    className="inline-block w-[350px] overflow-hidden rounded-3xl bg-card border border-border/50 shadow-lg shadow-primary/5 transition-all hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl"
-                  >
-                    <div className="h-48 w-full">
-                      <img
-                        src={post.image}
-                        alt="Post representation"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="p-6 whitespace-normal">
-                      <div className="mb-3 flex items-center justify-between">
-                        <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                          {post.type}
-                        </span>
-                        <span className="text-xs text-muted-foreground">{post.date}</span>
-                      </div>
-                      <p className="text-sm text-foreground line-clamp-3">
-                        {post.content}
-                      </p>
-                      <div className="mt-4 flex items-center justify-between border-t border-border/50 pt-4">
-                        <div className="flex items-center gap-2">
-                          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white">
-                            <Facebook className="h-3 w-3" />
-                          </div>
-                          <span className="text-xs font-medium text-muted-foreground">Tiny Triumph</span>
-                        </div>
-                        <a
-                          href="https://www.facebook.com/p/Tiny-Triumph-child-development-centre-61566975311848/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-semibold text-primary hover:underline"
-                        >
-                          View Post
-                        </a>
-                      </div>
-                    </div>
+        <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex gap-8 overflow-x-auto pb-12 pt-4 px-8 scrollbar-hide snap-x snap-mandatory"
+          >
+            {[
+              {
+                id: 1,
+                content: "Our young champion making great progress in physical therapy today! Every step counts.",
+                type: "Achievement",
+                date: "2 days ago",
+                image: "https://images.unsplash.com/photo-1576091160550-217359f4ecf8?w=400&h=300&fit=crop"
+              },
+              {
+                id: 2,
+                content: "New sensory play tools have arrived! Helping children explore and learn through touch and feel.",
+                type: "Update",
+                date: "1 week ago",
+                image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop"
+              },
+              {
+                id: 3,
+                content: "Speech therapy success stories! We're celebrating our little hero's first words this month.",
+                type: "Success Story",
+                date: "3 days ago",
+                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop"
+              },
+              {
+                id: 4,
+                content: "Join us for our next parent-teacher workshop on understanding child behavioral patterns.",
+                type: "Event",
+                date: "Today",
+                image: "https://images.unsplash.com/photo-1573497620053-ea5310f94a17?w=400&h=300&fit=crop"
+              },
+              {
+                id: 5,
+                content: "A beautiful morning at Tiny Triumph! Creating a nurturing environment for every child.",
+                type: "Clinic Life",
+                date: "4 days ago",
+                image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=300&fit=crop"
+              }
+            ].map((post) => (
+              <div
+                key={post.id}
+                className="flex-shrink-0 w-[320px] sm:w-[400px] overflow-hidden rounded-[2.5rem] bg-card border border-border/50 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:border-primary/30 snap-center group"
+              >
+                <div className="h-56 w-full overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt="Post representation"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="mb-4 flex items-center justify-between">
+                    <span className="rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                      {post.type}
+                    </span>
+                    <span className="text-xs font-medium text-muted-foreground">{post.date}</span>
                   </div>
-                ))}
+                  <p className="text-foreground leading-relaxed line-clamp-3 text-lg font-medium">
+                    {post.content}
+                  </p>
+                  <div className="mt-8 flex items-center justify-between border-t border-border/50 pt-6">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg">
+                        <Facebook className="h-4 w-4" />
+                      </div>
+                      <span className="text-sm font-bold text-foreground">Tiny Triumph</span>
+                    </div>
+                    <a
+                      href="https://www.facebook.com/p/Tiny-Triumph-child-development-centre-61566975311848/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-bold text-primary hover:underline hover:translate-x-1 transition-transform inline-flex items-center"
+                    >
+                      View Post <ChevronRight className="ml-1 h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Gradient overlays for the fade effect */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary/30 to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-secondary/30 to-transparent z-10" />
+          {/* Gradient overlays for visual depth */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-secondary/20 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-secondary/20 to-transparent z-10" />
         </div>
 
-        <div className="container mt-12">
-          <div className="flex justify-center gap-4">
-            <Button asChild variant="outline" className="rounded-full">
+        <div className="container mt-16 pb-12">
+          <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
+            <Button asChild variant="outline" className="h-14 w-full max-w-[280px] rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-xl sm:w-auto">
               <a
                 href="https://www.facebook.com/p/Tiny-Triumph-child-development-centre-61566975311848/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex items-center justify-center font-bold"
               >
-                <Facebook className="mr-2 h-4 w-4" />
+                <Facebook className="mr-3 h-5 w-5 fill-blue-600 text-blue-600" />
                 Follow on Facebook
               </a>
             </Button>
-            <Button asChild variant="outline" className="rounded-full">
-              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
-                <Smartphone className="mr-2 h-4 w-4" />
+            <Button asChild variant="outline" className="h-14 w-full max-w-[280px] rounded-full px-8 text-lg border-primary/20 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-xl sm:w-auto">
+              <a
+                href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center font-bold"
+              >
+                <Smartphone className="mr-3 h-5 w-5 text-teal-600" />
                 Connect on WhatsApp
               </a>
             </Button>
@@ -385,26 +480,45 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary py-16 md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-4xl">
-              Ready to Help Your Child Thrive?
-            </h2>
-            <p className="mt-4 text-lg text-primary-foreground/80">
-              Schedule your appointment today and experience the Tiny Triumph difference.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              variant="secondary"
-              className="mt-8 rounded-full px-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+      <section className="bg-primary py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[150px] translate-x-1/3 translate-y-1/3" />
+        </div>
+
+        <div className="container relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             >
-              <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
-                Book Your Appointment
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
+              <h2 className="font-display text-5xl font-bold text-primary-foreground md:text-7xl leading-tight">
+                Ready to Help Your <br />
+                <span className="text-white/80">Child Thrive?</span>
+              </h2>
+              <p className="mt-8 text-2xl text-primary-foreground/90 font-light max-w-2xl mx-auto">
+                Schedule your comprehensive evaluation today and start the journey towards
+                <span className="font-bold text-white"> lasting success</span>.
+              </p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block mt-12"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  variant="secondary"
+                  className="rounded-full px-12 py-8 text-2xl shadow-2xl hover:bg-white hover:text-primary transition-all duration-500"
+                >
+                  <a href="https://api.whatsapp.com/send?phone=919114222044&text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Tiny%20Triumph%20CDC." target="_blank" rel="noopener noreferrer">
+                    Book Your Appointment Now
+                    <ChevronRight className="ml-3 h-8 w-8" />
+                  </a>
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>

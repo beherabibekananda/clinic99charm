@@ -73,9 +73,10 @@ const Footer = () => {
               {[
                 "Occupational Therapy",
                 "Speech Therapy",
-                "Applied Behavior Analysis (ABA)",
-                "Physical Therapy",
+                "Behaviour Therapy",
+                "Physiotherapy",
                 "Special Education",
+                "Sensory Integration Therapy",
               ].map((service) => (
                 <li key={service}>
                   <Link

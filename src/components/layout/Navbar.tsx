@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const location = useLocation();
 
   const navLinks = [
@@ -21,8 +23,8 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between md:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white">
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white transition-transform duration-500 group-hover:scale-110">
             <img src="/logo.png" alt="Tiny Triumph Logo" className="h-full w-full object-cover" />
           </div>
           <span className="font-display text-xl font-semibold text-foreground md:text-2xl">
@@ -31,15 +33,31 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:gap-8">
+        <div className="hidden md:flex md:items-center md:gap-4 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-110 ${isActive(link.path) ? "text-primary" : "text-muted-foreground"
+              onMouseEnter={() => setHoveredPath(link.path)}
+              onMouseLeave={() => setHoveredPath(null)}
+              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${isActive(link.path) ? "text-primary" : "text-muted-foreground hover:text-primary"
                 }`}
             >
-              {link.name}
+              {isActive(link.path) && (
+                <motion.div
+                  layoutId="active-nav"
+                  className="absolute inset-0 z-0 rounded-full bg-primary/10"
+                  transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                />
+              )}
+              {hoveredPath === link.path && !isActive(link.path) && (
+                <motion.div
+                  layoutId="hover-nav"
+                  className="absolute inset-0 z-0 rounded-full bg-secondary/50"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                />
+              )}
+              <span className="relative z-10">{link.name}</span>
             </Link>
           ))}
         </div>

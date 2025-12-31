@@ -47,7 +47,7 @@ const Contact = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
+      phone: "+91 ",
       subject: "",
       message: "",
     },
@@ -223,7 +223,7 @@ const Contact = () => {
                               <FormItem>
                                 <FormLabel>Full Name</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="John Doe" {...field} />
+                                  <Input placeholder="Arjun Sharma" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -238,7 +238,7 @@ const Contact = () => {
                                 <FormItem>
                                   <FormLabel>Email</FormLabel>
                                   <FormControl>
-                                    <Input type="email" placeholder="john@example.com" {...field} />
+                                    <Input type="email" placeholder="arjun@example.in" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -252,7 +252,7 @@ const Contact = () => {
                                 <FormItem>
                                   <FormLabel>Phone Number</FormLabel>
                                   <FormControl>
-                                    <Input type="tel" placeholder="(555) 123-4567" {...field} />
+                                    <Input type="tel" placeholder="+91" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -267,7 +267,7 @@ const Contact = () => {
                               <FormItem>
                                 <FormLabel>Subject</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="How can we help?" {...field} />
+                                  <Input placeholder="Inquiry about Occupational Therapy" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -282,7 +282,7 @@ const Contact = () => {
                                 <FormLabel>Message</FormLabel>
                                 <FormControl>
                                   <Textarea
-                                    placeholder="Tell us more about your inquiry..."
+                                    placeholder="Tell us more about your child's requirements..."
                                     className="min-h-[120px]"
                                     {...field}
                                   />
